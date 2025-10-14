@@ -59,7 +59,6 @@ const HeroSection = () => {
             partnerships, and grow sustainably.
           </p>
 
-          {/* Button */}
           <Button />
         </motion.div>
       </div>
