@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/30 z-0" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center px-6 sm:px-8 md:px-10 mt-10 sm:mt-16 md:mt-20 text-center">
+      <div className="relative z-10 flex flex-col items-center px-6 sm:px-8 md:px-10  sm:mt-16 md:mt-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
