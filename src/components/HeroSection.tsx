@@ -12,7 +12,7 @@ const HeroSection = () => {
         lg:bg-[url('/images/HeroDesk.png')]
         bg-center
       "
-    >
+    > 
       <div className="absolute inset-0 bg-black/30 z-0" />
 
       <div className="relative z-10 flex flex-col items-center px-6 sm:px-8 md:px-10  sm:mt-16 md:mt-20 text-center">
