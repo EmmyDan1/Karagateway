@@ -27,7 +27,7 @@ const SectorsAndProducts = () => {
         },
         {
           name: "Healthcare & Medical Technology",
-          image: EstoniaToAfrica.ProcessedFood,
+          image: EstoniaToAfrica.Medic,
           description: "Medical devices and healthcare innovations",
         },
         {
@@ -37,7 +37,7 @@ const SectorsAndProducts = () => {
         },
         {
           name: "Smart Infrastructure",
-          image: EstoniaToAfrica.Funiture,
+          image: EstoniaToAfrica.SmartInfra,
           description: "Urban development and smart city solutions",
         },
         {
@@ -77,7 +77,7 @@ const SectorsAndProducts = () => {
         {
           name: "Processed Foods & Ingredients",
           description: "Value-added agricultural products",
-          image: AfricaToEstonia.TradePfood,
+          image: AfricaToEstonia.ProcessedFood,
         },
         {
           name: "Mineral Resources",
@@ -205,6 +205,7 @@ const SectorsAndProducts = () => {
                           .name
                       }
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   </div>
 

@@ -15,19 +15,20 @@ import step5 from "../assets/images/step5.jpg";
 import step2 from "../assets/images/step2.jpg";
 import step3 from "../assets/images/step3.jpg";
 import step4 from "../assets/images/step4.jpg";
-import TechHardWare from "../assets/images/AgricTech.jpg";
-import IndustryMachine from "../assets/images/IndustryMachine.png";
-import ProcessedFood from "../assets/images/Medics.png";
-import DiaryProduct from "../assets/images/DiaryProducts.png";
+import TechHardWare from "../assets/images/AgricTech.webp";
+import IndustryMachine from "../assets/images/IndustryMachine.webp";
+import Medic from "../assets/images/Medics.webp";
+import DiaryProduct from "../assets/images/DiaryProducts.webp";
 import AfricanSpice from "../assets/images/AfricanSpices2.webp";
-import TradePfood from '../assets/images/Minerals.png'
-import BambooProduct from "../assets/images/Bamboo.png";
-import AfricanOil from "../assets/images/AfricanOil2.png";
+import TradePfood from '../assets/images/Minerals.webp'
+import BambooProduct from "../assets/images/Bamboo.webp";
+import AfricanOil from "../assets/images/AfricanOil2.webp";
 import LandingImg from '../assets/images/landingimg.png'
-import Funiture from "../assets/images/SmartInfra.jpg" 
-import Textiles from '../assets/images/Textiles.png'
+import SmartInfra from "../assets/images/SmartInfra.jpg" 
+import Textiles from '../assets/images/Textiles.webp'
 import KaraLogo3 from '../assets/images/KaraLogo3.png'
 import DigitalSolutions from '../assets/images/DigitalSolutions.jpg'
+import ProcessedFood from '../assets/images/Processedfood.webp'
 
  type imageProp = {
     img: string
@@ -37,9 +38,9 @@ export const landingImg: imageProp = { img: LandingImg };
 export const EstoniaToAfrica = {
   TechHardWare,
   IndustryMachine,
-  ProcessedFood,
+  Medic,
   DiaryProduct,
-  Funiture,
+  SmartInfra,
   DigitalSolutions
 };
 
@@ -51,6 +52,7 @@ export const AfricaToEstonia = {
   Textiles,
   BambooProduct,
   TradePfood,
+  ProcessedFood
   
 };
 
