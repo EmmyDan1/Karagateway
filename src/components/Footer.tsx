@@ -18,7 +18,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="space-y-4">
-            <img src={KaraLogo2} alt="KaraGateWay" className="w- h-12" />
+            <Link to="/">
+              <img src={KaraLogo2} alt="KaraGateWay" className="w- h-12" />
+            </Link>
             <p className="text-secondary text-sm max-w-xs">
               Bridging opportunities through innovative trade solutions
             </p>

@@ -17,11 +17,11 @@ import step3 from "../assets/images/step3.jpg";
 import step4 from "../assets/images/step4.jpg";
 import TechHardWare from "../assets/images/AgricTech.jpg";
 import IndustryMachine from "../assets/images/IndustryMachine.png";
-import ProcessedFood from "../assets/images/HealthCare4.jpg";
+import ProcessedFood from "../assets/images/Medics.png";
 import DiaryProduct from "../assets/images/DiaryProducts.png";
 import AfricanSpice from "../assets/images/AfricanSpices2.webp";
-import TradePfood from '../assets/images/TradePfood.png'
-import BambooProduct from "../assets/images/BambooProduct.jpg";
+import TradePfood from '../assets/images/Minerals.png'
+import BambooProduct from "../assets/images/Bamboo.png";
 import AfricanOil from "../assets/images/AfricanOil2.png";
 import LandingImg from '../assets/images/landingimg.png'
 import Funiture from "../assets/images/SmartInfra.jpg" 

@@ -11,13 +11,13 @@ const stats = [
   },
   {
     label: "Products Sourced",
-    value: 50,
+    value: 2,
     duration: 2,
     delay: 0.6,
   },
   {
-    label: "Trusted by 50+ SMEs, governments & trade groups",
-    value: 5,
+    label: "Trusted by 2 SMEs, governments & trade groups",
+    value: 2,
     duration: 4,
     delay: 0.9,
   },

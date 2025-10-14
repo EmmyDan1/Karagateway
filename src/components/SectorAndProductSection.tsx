@@ -11,44 +11,46 @@ const SectorsAndProducts = () => {
   const tradeDirections = [
     {
       title: "Global Innovations to Africa",
-      subtitle: "World-class technology and expertise meeting African market opportunities",
+      subtitle:
+        "World-class technology and expertise meeting African market opportunities",
       icon: <Globe className="w-6 h-6" />,
       products: [
         {
           name: "Renewable Energy Solutions",
           image: EstoniaToAfrica.DiaryProduct,
-          description: "Solar, wind, and sustainable power solutions"
+          description: "Solar, wind, and sustainable power solutions",
         },
         {
           name: "Advanced Agri-Tech",
           image: EstoniaToAfrica.TechHardWare,
-          description: "Precision farming and agricultural technology"
+          description: "Precision farming and agricultural technology",
         },
         {
           name: "Healthcare & Medical Technology",
           image: EstoniaToAfrica.ProcessedFood,
-          description: "Medical devices and healthcare innovations"
+          description: "Medical devices and healthcare innovations",
         },
         {
           name: "Industrial Machinery & Automation",
           image: EstoniaToAfrica.IndustryMachine,
-          description: "Manufacturing and automation systems"
+          description: "Manufacturing and automation systems",
         },
         {
           name: "Smart Infrastructure",
           image: EstoniaToAfrica.Funiture,
-          description: "Urban development and smart city solutions"
+          description: "Urban development and smart city solutions",
         },
         {
           name: "Digital Solutions & FinTech",
           image: EstoniaToAfrica.DigitalSolutions,
-          description: "Digital transformation and financial technology"
+          description: "Digital transformation and financial technology",
         },
       ],
     },
     {
       title: "African Excellence to the World",
-      subtitle: "Premium African products and resources reaching global markets",
+      subtitle:
+        "Premium African products and resources reaching global markets",
       icon: <TrendingUp className="w-6 h-6" />,
       products: [
         {
@@ -58,7 +60,8 @@ const SectorsAndProducts = () => {
         },
         {
           name: "Natural Beauty & Wellness",
-          description: "Essential oils, plant extracts, and organic ingredients",
+          description:
+            "Essential oils, plant extracts, and organic ingredients",
           image: AfricaToEstonia.AfricanOil,
         },
         {
@@ -86,14 +89,18 @@ const SectorsAndProducts = () => {
   ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => 
-      prev === tradeDirections[activeDirection].products.length - 1 ? 0 : prev + 1
+    setCurrentSlide((prev) =>
+      prev === tradeDirections[activeDirection].products.length - 1
+        ? 0
+        : prev + 1
     );
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => 
-      prev === 0 ? tradeDirections[activeDirection].products.length - 1 : prev - 1
+    setCurrentSlide((prev) =>
+      prev === 0
+        ? tradeDirections[activeDirection].products.length - 1
+        : prev - 1
     );
   };
 
@@ -112,13 +119,14 @@ const SectorsAndProducts = () => {
             Strategic Trade Sectors
           </h2>
           <p className="text-xl text-primary max-w-3xl mx-auto leading-relaxed">
-            Find your pathway to growth through strategic trade sectors with proven potential.
+            Find your pathway to growth through strategic trade sectors with
+            proven potential.
           </p>
         </motion.div>
 
         {/* Direction Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-100">
+          <div className="bg-white flex flex-col md:flex-row rounded-2xl p-2 shadow-lg border border-gray-100">
             {tradeDirections.map((direction, index) => (
               <button
                 key={index}
@@ -167,7 +175,7 @@ const SectorsAndProducts = () => {
               >
                 <ChevronLeft className="w-6 h-6 text-[#876e4B]" />
               </button>
-              
+
               <button
                 onClick={nextSlide}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
@@ -188,8 +196,14 @@ const SectorsAndProducts = () => {
                   {/* Image Section */}
                   <div className="md:w-1/2 h-64 md:h-full">
                     <img
-                      src={tradeDirections[activeDirection].products[currentSlide].image}
-                      alt={tradeDirections[activeDirection].products[currentSlide].name}
+                      src={
+                        tradeDirections[activeDirection].products[currentSlide]
+                          .image
+                      }
+                      alt={
+                        tradeDirections[activeDirection].products[currentSlide]
+                          .name
+                      }
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -202,30 +216,45 @@ const SectorsAndProducts = () => {
                         Featured Sector
                       </span>
                     </div>
-                    
+
                     <h4 className="text-3xl font-bold text-[#2d3748] mb-4">
-                      {tradeDirections[activeDirection].products[currentSlide].name}
+                      {
+                        tradeDirections[activeDirection].products[currentSlide]
+                          .name
+                      }
                     </h4>
-                    
-                    {'description' in tradeDirections[activeDirection].products[currentSlide] && (
+
+                    {"description" in
+                      tradeDirections[activeDirection].products[
+                        currentSlide
+                      ] && (
                       <p className="text-lg text-[#718096] leading-relaxed mb-6">
-                        {tradeDirections[activeDirection].products[currentSlide].description}
+                        {
+                          tradeDirections[activeDirection].products[
+                            currentSlide
+                          ].description
+                        }
                       </p>
                     )}
 
                     <div className="flex items-center gap-4">
                       <span className="text-sm text-gray-500">
-                        {currentSlide + 1} of {tradeDirections[activeDirection].products.length}
+                        {currentSlide + 1} of{" "}
+                        {tradeDirections[activeDirection].products.length}
                       </span>
                       <div className="flex gap-1">
-                        {tradeDirections[activeDirection].products.map((_, index) => (
-                          <div
-                            key={index}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                              index === currentSlide ? 'bg-[#876e4B] w-6' : 'bg-gray-300'
-                            }`}
-                          />
-                        ))}
+                        {tradeDirections[activeDirection].products.map(
+                          (_, index) => (
+                            <div
+                              key={index}
+                              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                index === currentSlide
+                                  ? "bg-[#876e4B] w-6"
+                                  : "bg-gray-300"
+                              }`}
+                            />
+                          )
+                        )}
                       </div>
                     </div>
                   </div>
@@ -243,7 +272,7 @@ const SectorsAndProducts = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-bold text-center text-[#2d3748] mb-8">
+          <h3 className="text-2xl font-bold text-center text-primary mb-8">
             All Trade Sectors
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -255,8 +284,8 @@ const SectorsAndProducts = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`p-4 rounded-xl text-center transition-all duration-300 ${
                   currentSlide === index
-                    ? 'bg-[#876e4B] text-white shadow-lg'
-                    : 'bg-white text-gray-700 shadow-md hover:shadow-lg'
+                    ? "bg-[#876e4B] text-white shadow-lg"
+                    : "bg-white text-primary shadow-md hover:shadow-lg"
                 }`}
               >
                 <span className="text-sm font-medium leading-tight">
@@ -266,7 +295,10 @@ const SectorsAndProducts = () => {
             ))}
           </div>
         </motion.div>
-
+        <p className="text-[#876e4B] font-normal text-base md:text-md mb-6 max-w-2xl mx-auto leading-relaxed">
+          Your trade sector not covered? Click below to start your journey, our
+          team will contact you directly.
+        </p>
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -280,8 +312,10 @@ const SectorsAndProducts = () => {
               Ready to Explore Opportunities?
             </h3>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Connect with our trade experts to discover how these sectors can drive your growth.
+              Connect with our trade experts to discover how these sectors can
+              drive your growth.
             </p>
+
             <Button />
           </div>
         </motion.div>
