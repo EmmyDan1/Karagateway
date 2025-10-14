@@ -7,7 +7,7 @@ const HeroSection = () => {
       className="
         relative w-full min-h-screen bg-cover md:bg-[position:50%_0%] flex items-center justify-center
         py-16 sm:py-20 md:py-0
-        bg-[url('/images/HeroMobil2.png')]
+        bg-[url('/images/HeroMobil2.webp')]
         sm:bg-[url('/images/HeroTab.png')]
         lg:bg-[url('/images/HeroDesk.png')]
         bg-center
