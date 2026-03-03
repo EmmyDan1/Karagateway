@@ -1,13 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import {
-  FaIndustry,
-  FaShoppingCart,
-  FaTruck,
-  FaChartLine,
-  FaCheckCircle,
-  FaUpload,
-} from "react-icons/fa";
+import { partnerTypes } from "../data/PartnersType";
+import { FaCheckCircle, FaUpload } from "react-icons/fa";
 
 const PartnerWithUs = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +13,7 @@ const PartnerWithUs = () => {
     businessDescription: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -30,20 +24,44 @@ const PartnerWithUs = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
+    // Create template parameters that match your EmailJS template
+    const templateParams = {
+      company_name: formData.companyName,
+      partnership_type: formData.partnershipType,
+      contact_person: formData.contactPerson,
+      email: formData.email,
+      phone: formData.phone,
+      business_description: formData.businessDescription,
+      from_name: "Karagateway Website",
+      to_email: "info@karagateway.com", // Add your email here if needed
+    };
+
+    console.log("Sending email with params:", templateParams);
+
     try {
-      await emailjs.sendForm(
-        "service_pul5dtb", 
-        "template_3dpsi6e", 
-        e.target, 
+      const result = await emailjs.send(
+        "service_pul5dtb",
+        "template_3dpsi6e",
+        templateParams,
         "ge55ESt2Hz4cBeS9S"
       );
 
+      console.log("Email sent successfully:", result); // Add this line
+
       setIsSubmitted(true);
-      e.target.reset();
+      // Reset form data properly
+      setFormData({
+        companyName: "",
+        partnershipType: "",
+        contactPerson: "",
+        email: "",
+        phone: "",
+        businessDescription: "",
+      });
     } catch (error) {
       console.error("Failed to send:", error);
       alert("There was an error sending your message. Please try again.");
@@ -51,32 +69,6 @@ const PartnerWithUs = () => {
       setIsLoading(false);
     }
   };
-  const partnerTypes = [
-    {
-      type: "Producers & Suppliers",
-      description:
-        "Showcase your products for export and gain access to new international markets",
-      icon: <FaIndustry className="text-2xl text-[#4e3629]" />,
-    },
-    {
-      type: "Buyers & Distributors",
-      description:
-        "Source high-quality African products or global goods efficiently",
-      icon: <FaShoppingCart className="text-2xl text-[#4e3629]" />,
-    },
-    {
-      type: "Logistics & Service Providers",
-      description:
-        "Collaborate on cross-border solutions for shipping, customs, and supply chain",
-      icon: <FaTruck className="text-2xl text-[#4e3629]" />,
-    },
-    {
-      type: "Investors & Strategic Partners",
-      description:
-        "Support trade growth, scale operations, and participate in market expansion",
-      icon: <FaChartLine className="text-2xl text-[#4e3629]" />,
-    },
-  ];
 
   const benefits = [
     "Access Verified Partners: We vet every business to ensure credibility and quality.",
@@ -182,7 +174,7 @@ const PartnerWithUs = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                   <div>
                     <label className="block text-sm font-medium text-[#4e3629] mb-2">
-                      Company/Organization name 
+                      Company/Organization name
                     </label>
                     <input
                       type="text"
@@ -196,7 +188,7 @@ const PartnerWithUs = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-[#4e3629] mb-2">
-                      Type of partnership 
+                      Type of partnership
                     </label>
                     <select
                       name="partnershipType"
@@ -220,7 +212,7 @@ const PartnerWithUs = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-[#4e3629] mb-2">
-                      Contact person 
+                      Contact person
                     </label>
                     <input
                       type="text"
@@ -234,7 +226,7 @@ const PartnerWithUs = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-[#4e3629] mb-2">
-                      Email 
+                      Email
                     </label>
                     <input
                       type="email"
@@ -260,7 +252,7 @@ const PartnerWithUs = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#4e3629] mb-2">
-                    Short description of your business or interest 
+                    Short description of your business or interest
                   </label>
                   <textarea
                     name="businessDescription"
@@ -295,7 +287,7 @@ const PartnerWithUs = () => {
                   disabled={isLoading}
                   className="w-full bg-[#4e3629] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#3a281f] transition-colors duration-300"
                 >
-                  {isLoading ? 'Sending...' : 'Submit Application'}
+                  {isLoading ? "Sending..." : "Submit Application"}
                 </button>
               </form>
             )}

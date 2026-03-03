@@ -1,33 +1,53 @@
 import { useState } from "react";
 import ContactClick from "./ui/ContactClick";
-import emailjs from "@emailjs/browser";
+
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e:any) => {
-    e.preventDefault();
-    setIsLoading(true);
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsLoading(true);
 
-    try {
-      await emailjs.sendForm(
-        "service_pul5dtb", 
-        "template_dgiiunr", 
-        e.target, 
-        "ge55ESt2Hz4cBeS9S"
-      );
+  const form = e.currentTarget;
 
-      setIsSubmitted(true);
-      // Reset form
-      e.target.reset();
-    } catch (error) {
-      console.error("Failed to send:", error);
-      alert("There was an error sending your message. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+  const formData = {
+    name: (form.elements.namedItem("name") as HTMLInputElement).value,
+    company: (form.elements.namedItem("company") as HTMLInputElement).value,
+    region: (form.elements.namedItem("region") as HTMLInputElement).value,
+    interest: (form.elements.namedItem("interest") as HTMLTextAreaElement).value,
+    email: (form.elements.namedItem("email") as HTMLInputElement).value,
   };
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        formType: "trade",
+        ...formData,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      setIsSubmitted(true);
+      form.reset();
+    } else {
+      throw new Error("Failed to send");
+    }
+
+  } catch (error) {
+    console.error("Failed to send:", error);
+    alert("There was an error sending your message. Please try again.");
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-lightbrown">

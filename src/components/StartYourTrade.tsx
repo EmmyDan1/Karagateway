@@ -1,5 +1,5 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
+
 
 const StartTradeJourney = () => {
   const [formData, setFormData] = useState({
@@ -21,28 +21,45 @@ const StartTradeJourney = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    setSubmitStatus('idle')
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitStatus("idle");
 
-    try {
-      await emailjs.sendForm(
-        "service_g5athau",
-        "template_1a2et7r",
-        e.target,
-        "W2Sv78AOqLrMYkHrl"
-      );
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        formType: "expansion",
+        ...formData,
+      }),
+    });
 
-    
-      setSubmitStatus("success")
-      e.target.reset();
-    } catch (error) {
-      console.error("Failed to send:", error);
-      alert("There was an error sending your message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+    const result = await response.json();
+
+    if (result.success) {
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        businessType: "",
+        email: "",
+        expansionGoal: "",
+        message: "",
+      });
+    } else {
+      throw new Error("Failed to send");
     }
-  };
+
+  } catch (error) {
+    console.error("Failed to send:", error);
+    setSubmitStatus("error");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-[#f4e9dc] py-24 px-4 sm:px-6 lg:px-8">
